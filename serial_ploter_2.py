@@ -19,12 +19,15 @@ serialArduino = serial.Serial('COM8', 115200)
 def plotValues():
     plt.subplot(411)
     plt.title('Values of X')
+    plt.ylim(0, 255)
     plt.plot(valuesx,'r')
     plt.subplot(412)
     plt.title('Values of Y')
+    plt.ylim(0, 255)
     plt.plot(valuesy,'g')
     plt.subplot(413)
     plt.title('Values of Z')
+    plt.ylim(0, 255)
     plt.plot(valuesz,'b')
 
     #plt.title('Serial value from Arduino')
@@ -65,7 +68,9 @@ while True:
         valuexInInt = int(x)
         valueyInInt = int(y)
         valuezInInt = int(z)
-        print(valueInInt)
+        print(valuexInInt)
+        print(valueyInInt)
+        print(valuezInInt)
         if valueInInt <= 1024:
             if valueInInt >= 0:
                 values.append(valueInInt)
